@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 
@@ -14,6 +15,7 @@ function App() {
   const [newTotal, setNewTotal] = useState('');
   const [newPizzas, setNewPizzas] = useState('');
 
+  const dispatch = useDispatch();
 
   // GET pizza request
   const fetchPizzas = () => {
@@ -28,6 +30,8 @@ function App() {
 
         // Set data into component state
         setPizzaList(response.data);
+        // dispatch({type: 'SET_PIZZA_ITEM', payload: response.data});
+        dispatch({type: 'SET_PIZZA_LIST', payload: response.data});
       })
       .catch(function (error) {
         console.log('Error on get:', error);
@@ -106,16 +110,27 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
+        <h2 className='transaction-total'>Total: </h2>
       </header>
   
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
+
+
+      {/* will need to add fetchTotal into this to display at the top of each page */}
+
       {/* <div className="PizzaList">
         <ul>
           <li>{pizzaList}</li>
         </ul>
       </div> */}
-  <PizzaList pizzaList = {pizzaList}/>
+
+  
+  <PizzaList 
+    pizzaListProp = {pizzaList}
+    fetchPizzas = {fetchPizzas} 
+  />
+
     </div>
   );
 }

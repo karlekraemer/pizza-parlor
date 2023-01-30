@@ -1,0 +1,1 @@
+// CustomerInformation or "step 2" will collect Customer Info 

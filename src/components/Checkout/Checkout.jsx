@@ -1,0 +1,1 @@
+//Checkout or "step 3" retains all of the information stored via ReduxStore from PizzaList (or "step 1") and CustomerInformation (or "step 2")
