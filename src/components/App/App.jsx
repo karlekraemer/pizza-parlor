@@ -6,6 +6,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './App.css';
+import Checkout from '../Checkout/Checkout';
 import PizzaList from '../PizzaList/PizzaList';
 import CustomerInformation from '../CustomerInformation/CustomerInformation';
 
