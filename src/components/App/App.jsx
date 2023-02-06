@@ -4,11 +4,12 @@ import axios from 'axios';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import Checkout from '../Checkout/Checkout';
 import PizzaList from '../PizzaList/PizzaList';
 import CustomerInformation from '../CustomerInformation/CustomerInformation';
+import Header from '../Header/Header';
 
 function App() {
 
@@ -108,20 +109,18 @@ function App() {
     fetchOrder();
   }, []);
 
+  const item = useSelector(store => store)
 
-
+  // get the total of each added pizza
+  // const getTotal 
+    // for loop to grab that value
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
-        <h2 className='transaction-total'>Total: </h2>
-      </header>
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
       {/* will need to add fetchTotal into this to display at the top of each page */}
         <div>
           <Router>
+            <Header />
             <Route exact path="/">
               <PizzaList
                 pizzaListProp={pizzaList}
@@ -130,6 +129,10 @@ function App() {
             <Route exact path="/Customer/Information">
               <CustomerInformation/>
             </Route>  
+            <Route exact path="/Checkout">
+              <Checkout/>
+            </Route>  
+            
           </Router>
         </div>
     </div>

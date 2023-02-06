@@ -47,6 +47,24 @@ const orderType = (state = '', action) => {
   return state;
 }
 
+//passenger count reducer
+// const addPizza = (state = 0, action) => {
+//   console.log('add pizza', state, action);
+//   if (action.type === 'ADD_PIZZA') {
+//     state++; //why doesn't state++ work? Needed to delete Return!
+//   }
+//   return state
+// };
+
+const total = (state = 0, action) => {
+  console.log(action);
+  if (action.type === 'ADD_TO_TOTAL'){
+    state + action.payload.price;
+  }
+  return state;
+}
+
+
 // an array where each piece of customer info is sent?
 // const customerInformation = (state = '', action) => {
 //   if (action.type === 'SET_CUSTOMER_INFORMATION') {
@@ -57,11 +75,13 @@ const orderType = (state = '', action) => {
 
 const reduxStore = createStore(
     combineReducers({
+      
       name,
       city,
       zip,
       streetAddress,
-      orderType
+      orderType,
+      total
     }),
     applyMiddleware(logger)
   );

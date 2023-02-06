@@ -7,29 +7,33 @@
 
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react'; 
 
 
 const PizzaItem = ({pizza}) => {
+    const [addPizza, setAddPizza] = useState('');
     const pizzaChoice = useSelector(store => store.pizzaChoice);
     const dispatch = useDispatch();
 
-    const handleSubmit = (event) => {
-        dispatch({
-            type: 'SET_PIZZA_CHOICE',
-            payload: event.target.value
-        });
-    } // I could be wrong with this...wasn't 100%. curious if just using pizza works as payload
+    // const handleSubmit = (event) => {
+    //     dispatch({
+    //         type: 'ADD_PIZZA',
+    //         payload: addPizza
+    //     });
+    // } // I could be wrong with this...wasn't 100%. curious if just using pizza works as payload
 
 
     return (
-        <form onSubmit={handleSubmit} className="pizza" key={pizza.id}>
+        <form className="pizza" key={pizza.id}>
             <img src={pizza.image_path}></img>
             <h3>{pizza.name}</h3>
             <p>{pizza.description}</p>
             <p className="itemprice">{pizza.price}</p>
-            <button type="submit" value={pizzaChoice} className="add">Add</button>
+            <button onClick={() => dispatch({ type: 'ADD_PIZZA', payload: pizza.price })}>ADD</button>
         </form>
     )
 }
 
 export default PizzaItem;
+
+//  <button onClick={() => dispatch({ type: 'ADD_PASSENGER' })}> Enter Passenger </button>
