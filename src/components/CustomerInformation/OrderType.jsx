@@ -16,7 +16,7 @@ const OrderType = () => {
         <>
         <h2> Pickup or Delivery? </h2>
             <div>
-                <input value={orderType} onChange={handleChange} className="input" type="text" />
+                <input value={orderType} onChange={handleChange} className="input" type="text" placeholder="pick-up or delivery" />
             </div>
         </>
     )

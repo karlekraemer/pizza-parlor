@@ -3,3 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+header {
+  color: rgb(137, 0, 0);
+}

@@ -11,7 +11,7 @@ import { useState } from 'react';
 
 
 const PizzaItem = ({pizza}) => {
-    const [addPizza, setAddPizza] = useState('');
+    // const [addPizza, setAddPizza] = useState('');
     const pizzaChoice = useSelector(store => store.pizzaChoice);
     const dispatch = useDispatch();
 

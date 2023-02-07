@@ -14,7 +14,7 @@ const CustomerStreetAddress = () => {
     return (
         <>
             <div>
-                <input value={streetAddress} onChange={handleChange} className="input" type="text" />
+                <input value={streetAddress} onChange={handleChange} className="input" type="text" placeholder="Address" />
             </div>
         </>
     )

@@ -47,6 +47,12 @@ const orderType = (state = '', action) => {
   return state;
 }
 
+const order = (state = '', action) => {
+  if (action.type === 'CHECKOUT') {
+      return action.payload;
+  }
+  return state;
+}
 //passenger count reducer
 // const addPizza = (state = 0, action) => {
 //   console.log('add pizza', state, action);
@@ -58,9 +64,10 @@ const orderType = (state = '', action) => {
 
 const total = (state = 0, action) => {
   console.log(action);
-  if (action.type === 'ADD_TO_TOTAL'){
-    state + action.payload.price;
+  if (action.type === 'ADD_PIZZA'){
+    state += Number(action.payload);
   }
+  console.log(state);
   return state;
 }
 
@@ -81,7 +88,8 @@ const reduxStore = createStore(
       zip,
       streetAddress,
       orderType,
-      total
+      total,
+      order
     }),
     applyMiddleware(logger)
   );

@@ -15,7 +15,7 @@ const CustomerName = () => {
     return (
         <>
             <div>
-                <input value={name} onChange={handleChange} className="input" type="text" />
+                <input value={name} onChange={handleChange} className="input" type="text" placeholder="Customer Name"/>
             </div>
         </>
     )

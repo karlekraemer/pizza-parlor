@@ -14,7 +14,7 @@ const CustomerZip = () => {
     return (
         <>
             <div>
-                <input value={zip} onChange={handleChange} className="input" type="text" />
+                <input value={zip} onChange={handleChange} className="input" type="text" placeholder="Zip"/>
             </div>
         </>
     )

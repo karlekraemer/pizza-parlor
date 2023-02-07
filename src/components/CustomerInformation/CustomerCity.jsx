@@ -14,7 +14,7 @@ const CustomerCity = () => {
     return (
         <>
             <div>
-                <input value={city} onChange={handleChange} className="input" type="text" />
+                <input value={city} onChange={handleChange} className="input" type="text" placeholder="City"/>
             </div>
         </>
     )

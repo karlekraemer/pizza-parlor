@@ -66,40 +66,40 @@ function App() {
   ////////////Need a GET request for the line item///////////
 
   // order form post request below
-  const submitOrder = (newCustomer_Name, newStreet_Address, newCity, newZip, newType, newTotal, newPizzas) => {
-    axios({
-      method: 'POST',
-      url: '/api/order',
-      data: {
-        customer_name: newCustomer_Name,
-        street_address: newStreet_Address,
-        city: newCity,
-        zip: newZip,
-        type: newType,
-        total: newTotal,
-        pizzas: newPizzas // we can make this an array for multiple pizzas in stretch mode
+  // const submitOrder = (newCustomer_Name, newStreet_Address, newCity, newZip, newType, newTotal, newPizzas) => {
+  //   axios({
+  //     method: 'POST',
+  //     url: '/api/order',
+  //     data: {
+  //       customer_name: newCustomer_Name,
+  //       street_address: newStreet_Address,
+  //       city: newCity,
+  //       zip: newZip,
+  //       type: newType,
+  //       total: newTotal,
+  //       pizzas: newPizzas // we can make this an array for multiple pizzas in stretch mode
 
-        //Fill out more here as we know what our order form looks like
+  //       //Fill out more here as we know what our order form looks like
 
-      }
-    })
-      .then((response) => {
-        console.log('Response:', response);
-        //fire GET request
-        fetchOrder();
-        //reset input fields
-        setNewCustomer_Name('');
-        setNewStreet_Address('');
-        setNewCity('');
-        setNewZip('');
-        setNewType('');
-        setNewTotal('');
-        setNewPizzas('');
-      })
-      .catch(function (error) {
-        console.log('Error on add:', error);
-      });
-  }
+  //     }
+  //   })
+  //     .then((response) => {
+  //       console.log('Response:', response);
+  //       //fire GET request
+  //       fetchOrder();
+  //       //reset input fields
+  //       setNewCustomer_Name('');
+  //       setNewStreet_Address('');
+  //       setNewCity('');
+  //       setNewZip('');
+  //       setNewType('');
+  //       setNewTotal('');
+  //       setNewPizzas('');
+  //     })
+  //     .catch(function (error) {
+  //       console.log('Error on add:', error);
+  //     });
+  // }
 
   useEffect(() => {
     fetchPizzas();
